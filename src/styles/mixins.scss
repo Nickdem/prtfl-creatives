@@ -3,3 +3,19 @@
   line-height: $lh;
   font-weight: $w;
 }
+
+@mixin size($w: auto, $h: auto) {
+  width: $w;
+  height: $h;
+}
+
+@mixin indent($pt: 0, $pr: 0, $pb: 0, $pl: 0, $mt: 0, $mr: 0, $mb: 0, $ml: 0) {
+  padding-top: $pt;
+  padding-right: $pr;
+  padding-bottom: $pb;
+  padding-left: $pl;
+  margin-top: $mt;
+  margin-right: $mr;
+  margin-bottom: $mb;
+  margin-left: $ml;
+}

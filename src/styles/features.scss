@@ -1,0 +1,57 @@
+@use "colors" as c;
+@use "mixins" as m;
+
+.features {
+  background-color: c.$blue;
+  color: white;
+
+  &-title {
+    text-align: center;
+    position: relative;
+    &::before {
+      content: "W";
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: c.$whiteOpacity;
+      @include m.textOpt(4em, 1em, 700);
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+  }
+
+  &-item {
+    @include m.indent($mt: 20px, $mb: 20px);
+  }
+
+  &-img {
+    background-color: c.$whiteOpacity;
+    border-radius: 50%;
+    @include m.size(62px, 62px);
+    @include m.textOpt(2em, 1em, 700);
+    @include m.indent(
+      $pt: 14px,
+      $pr: 14px,
+      $pb: 14px,
+      $pl: 14px,
+      $mt: 0,
+      $mr: auto,
+      $mb: 10px,
+      $ml: auto
+    );
+  }
+
+  &-name {
+    @include m.textOpt(1.2em, 1.6em, 700);
+  }
+
+  &-description {
+    @include m.textOpt(1em, 1.4em, 400);
+  }
+}

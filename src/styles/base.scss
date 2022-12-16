@@ -4,20 +4,37 @@
 body {
   font-family: sans-serif;
   background-color: c.$main-background;
+  background-image: url("../img/hero2.jpg");
+  background-repeat: no-repeat;
+  background-position: top right;
 }
 
-// .title {
-//   @include m.textOpt(0.8em, 4em, 700);
-// }
+.container {
+  max-width: 1400px;
+  @include m.indent(
+    $pt: 0,
+    $pr: 20px,
+    $pb: 0,
+    $pl: 20px,
+    $mt: 0,
+    $mr: auto,
+    $mb: 0,
+    $ml: auto
+  );
+}
 
-// .subtitle {
-//   @include m.textOpt(0.8em, 4em, 700);
-// }
+.title {
+  @include m.textOpt(1em, 6em, 700);
+}
 
-// .text {
-//   @include m.textOpt(0.8em, 4em, 700);
-// }
+.subtitle {
+  @include m.textOpt(0.8em, 4em, 700);
+}
 
-// .date {
-//   @include m.textOpt(0.8em, 4em, 700);
-// }
+.text {
+  @include m.textOpt(0.8em, 4em, 700);
+}
+
+.date {
+  @include m.textOpt(0.8em, 4em, 700);
+}

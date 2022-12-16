@@ -1,6 +1,8 @@
 @use "colors" as c;
+@use "mixins" as m;
+
 .header {
-  padding: 20px 40px;
+  @include m.indent($pt: 20px, $pr: 20px, $pb: 20px, $pl: 20px);
   border-bottom: 2px solid c.$white;
 
   &-inner {
@@ -12,30 +14,28 @@
   &-logo {
     display: inline;
     background-color: c.$blue;
-    padding: 16px;
     color: c.$white;
     box-shadow: 6px 6px 0 c.$white;
+    @include m.indent($pt: 16px, $pr: 16px, $pb: 16px, $pl: 16px);
   }
 
   &-menu {
     background: transparent;
     border: none;
     font-size: 0;
-    padding: 12px 0;
-    width: 30px;
-    height: 2px;
     border-top: 2px solid c.$blue;
     border-bottom: 2px solid c.$blue;
     position: relative;
+    @include m.size(30px, 2px);
+    @include m.indent($pt: 12px, $pr: 0, $pb: 12px, $pl: 0);
 
     &::before {
       content: "";
       position: absolute;
-      width: 26px;
-      height: 1px;
       left: 2px;
       top: 12px;
       background-color: c.$white;
+      @include m.size(26px, 1px);
     }
   }
 
@@ -43,28 +43,37 @@
     position: fixed;
     top: -1500px;
     left: 50%;
-    width: 100vw;
-    height: 100vh;
     transform: translateX(-50%);
     background-color: rgba(234, 228, 245, 0.5);
     opacity: 0;
     transition: all 0.44s linear;
+    @include m.size(100vw, 100vh);
   }
 
   &-navigation--show {
     top: 0;
     opacity: 1;
+    z-index: 99;
   }
 
   &-links {
-    width: 280px;
-    padding: 20px;
-    margin: 0 auto;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     background-color: c.$white;
+    @include m.size($w: 280px);
+    @include m.indent(
+      $pt: 20px,
+      $pr: 20px,
+      $pb: 20px,
+      $pl: 20px,
+      $mt: 0,
+      $mr: auto,
+      $mb: 0,
+      $ml: auto
+    );
   }
+
   &-link {
-    margin: 5px 0;
+    @include m.indent($mt: 5px, $mr: 0, $mb: 5px, $ml: 0);
   }
 }

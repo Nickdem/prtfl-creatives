@@ -3,30 +3,30 @@
 
 .hero {
   text-align: center;
+  @include m.size($h: calc(100vh - 90px));
 
   &-title {
-    @include m.textOpt(3.2em, 2.4em, 700);
     color: white;
+    @include m.textOpt(3em, 2.4em, 700);
   }
 
   &-subtitle {
-    @include m.textOpt(1.2em, 4em, 400);
     color: c.$blue;
+    @include m.textOpt(1.2em, 1em, 400);
   }
 
   &-scroll {
     color: white;
-    margin: 100px auto 0;
-    width: 200px;
+    @include m.indent($mt: 210px, $mr: auto, $mb: 0, $ml: auto);
+    @include m.size($w: 200px);
     @include m.textOpt(0.8em, 4em, 700);
 
     div {
-      width: 54px;
-      height: 54px;
       border: 1px solid white;
       border-radius: 50%;
       transform: rotate(90deg);
-      margin: 0 auto;
+      @include m.indent($mt: 0, $mr: auto, $mb: 0, $ml: auto);
+      @include m.size(54px, 54px);
 
       a {
         color: white;
