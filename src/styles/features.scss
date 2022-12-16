@@ -11,7 +11,7 @@
     &::before {
       content: "W";
       position: absolute;
-      top: 16px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
       color: c.$whiteOpacity;
@@ -24,6 +24,7 @@
     flex-direction: column;
     align-self: center;
     text-align: center;
+    @include m.indent($mr: 20px, $ml: 20px);
   }
 
   &-item {
@@ -51,7 +52,55 @@
     @include m.textOpt(1.2em, 1.6em, 700);
   }
 
-  &-description {
-    @include m.textOpt(1em, 1.4em, 400);
+  &-posts {
+    @include m.indent($mt: 40px);
+  }
+}
+
+.post {
+  &-date {
+    @include m.textOpt(0.6em, 1em, 400);
+
+    span:first-child {
+      @include m.indent($pr: 10px);
+    }
+
+    span:last-child {
+      @include m.indent($pl: 10px);
+    }
+  }
+
+  &-text {
+    @include m.indent($mt: 10px, $mb: 10px);
+  }
+
+  &:nth-child(2n + 1) > &-content {
+    background-color: c.$main-background;
+    color: c.$white;
+    text-align: right;
+    @include m.indent($pt: 40px, $pr: 40px, $pb: 40px, $pl: 60px);
+
+    span:first-child {
+      border-right: 1px solid c.$white;
+    }
+  }
+
+  &:nth-child(2n) > &-content {
+    background-color: c.$white;
+    color: c.$main-background;
+    text-align: left;
+    @include m.indent($pt: 40px, $pr: 60px, $pb: 40px, $pl: 40px);
+
+    span:first-child {
+      border-right: 1px solid c.$main-background;
+    }
+  }
+
+  &-picture {
+    @include m.size(100vw, 200px);
+
+    img {
+      @include m.size(100%, 100%);
+    }
   }
 }

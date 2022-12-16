@@ -24,15 +24,15 @@ body {
 }
 
 .title {
-  @include m.textOpt(1em, 6em, 700);
+  @include m.textOpt(1.2em, 6em, 700);
 }
 
 .subtitle {
-  @include m.textOpt(0.8em, 4em, 700);
+  @include m.textOpt(1.1em, 4em, 700);
 }
 
 .text {
-  @include m.textOpt(0.8em, 4em, 700);
+  @include m.textOpt(0.8em, 1.4em, 400);
 }
 
 .date {
