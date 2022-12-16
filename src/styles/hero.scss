@@ -1,0 +1,37 @@
+@use "mixins" as m;
+@use "colors" as c;
+
+.hero {
+  text-align: center;
+
+  &-title {
+    @include m.textOpt(3.2em, 2.4em, 700);
+    color: white;
+  }
+
+  &-subtitle {
+    @include m.textOpt(1.2em, 4em, 400);
+    color: c.$blue;
+  }
+
+  &-scroll {
+    color: white;
+    margin: 100px auto 0;
+    width: 200px;
+    @include m.textOpt(0.8em, 4em, 700);
+
+    div {
+      width: 54px;
+      height: 54px;
+      border: 1px solid white;
+      border-radius: 50%;
+      transform: rotate(90deg);
+      margin: 0 auto;
+
+      a {
+        color: white;
+        @include m.textOpt(1em, 4em, 700);
+      }
+    }
+  }
+}

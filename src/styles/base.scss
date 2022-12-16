@@ -1,0 +1,23 @@
+@use "colors" as c;
+@use "mixins" as m;
+
+body {
+  font-family: sans-serif;
+  background-color: c.$main-background;
+}
+
+// .title {
+//   @include m.textOpt(0.8em, 4em, 700);
+// }
+
+// .subtitle {
+//   @include m.textOpt(0.8em, 4em, 700);
+// }
+
+// .text {
+//   @include m.textOpt(0.8em, 4em, 700);
+// }
+
+// .date {
+//   @include m.textOpt(0.8em, 4em, 700);
+// }

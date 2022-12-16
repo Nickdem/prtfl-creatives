@@ -1,0 +1,70 @@
+@use "colors" as c;
+.header {
+  padding: 20px 40px;
+  border-bottom: 2px solid c.$white;
+
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-logo {
+    display: inline;
+    background-color: c.$blue;
+    padding: 16px;
+    color: c.$white;
+    box-shadow: 6px 6px 0 c.$white;
+  }
+
+  &-menu {
+    background: transparent;
+    border: none;
+    font-size: 0;
+    padding: 12px 0;
+    width: 30px;
+    height: 2px;
+    border-top: 2px solid c.$blue;
+    border-bottom: 2px solid c.$blue;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 26px;
+      height: 1px;
+      left: 2px;
+      top: 12px;
+      background-color: c.$white;
+    }
+  }
+
+  &-navigation {
+    position: fixed;
+    top: -1500px;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(-50%);
+    background-color: rgba(234, 228, 245, 0.5);
+    opacity: 0;
+    transition: all 0.44s linear;
+  }
+
+  &-navigation--show {
+    top: 0;
+    opacity: 1;
+  }
+
+  &-links {
+    width: 280px;
+    padding: 20px;
+    margin: 0 auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: c.$white;
+  }
+  &-link {
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,5 @@
+@mixin textOpt($s, $lh, $w) {
+  font-size: $s;
+  line-height: $lh;
+  font-weight: $w;
+}

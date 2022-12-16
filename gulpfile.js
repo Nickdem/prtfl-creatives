@@ -17,6 +17,7 @@ const del = require("del");
 
 const htmlInput = "src/*.html";
 const htmlOutput = "dist/";
+const stylesMainInput = "src/styles/global.scss";
 const stylesInput = "src/styles/**/*.scss";
 const stylesOutput = "dist/css/";
 const scriptsInput = "src/scripts/**/*.ts";
@@ -43,7 +44,7 @@ function html() {
 
 function styles() {
   return gulp
-    .src(stylesInput)
+    .src(stylesMainInput)
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(
