@@ -1,3 +1,7 @@
+interface IValues {
+  [key: string]: string;
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".header-menu");
   const navigation = document.querySelector(".header-navigation");
@@ -14,4 +18,29 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   navigation?.addEventListener("click", hideMenu);
+
+  const form = document.querySelector(".contacts-form");
+
+  function submitHadler(e: SubmitEvent) {
+    e.preventDefault();
+
+    const values: IValues = {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    };
+
+    Array.from(form.children).forEach((element: HTMLFormElement) => {
+      if (element.id in values) {
+        const key = element.id;
+        const value = element.value;
+        values[key] = value;
+      }
+    });
+
+    console.log(values);
+  }
+
+  form?.addEventListener("submit", submitHadler);
 });
