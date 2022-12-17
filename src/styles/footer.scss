@@ -1,0 +1,8 @@
+@use "colors" as c;
+@use "mixins" as m;
+
+.footer {
+    color: c.$white;
+    text-align: center;
+    @include m.indent($pt: 20px, $pb:20px)
+}

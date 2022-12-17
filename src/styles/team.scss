@@ -35,7 +35,7 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
-    @include m.size($w: calc(100% - 60px));
+    @include m.size($w: calc(100% - 40px));
     @include m.indent($pr: 20px, $pl: 20px);
   }
 

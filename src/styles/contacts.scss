@@ -1,0 +1,56 @@
+@use "mixins" as m;
+@use "colors" as c;
+
+.contacts {
+  background-image: url("../img/projects.jpg");
+  background-repeat: no-repeat;
+  background-position: center left;
+  @include m.indent($pt: 40px, $pr: 20px, $pb: 40px, $pl: 20px);
+
+  &-title {
+    color: c.$white;
+    text-align: center;
+    position: relative;
+    @include m.textOpt(1.2em, 1em, 700);
+
+    &::before {
+      content: "C";
+      color: c.$whiteOpacity;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      @include m.textOpt(4em, 1em, 700);
+    }
+  }
+
+  &-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    column-gap: 20px;
+    @include m.indent($pt: 40px);
+  }
+
+  &-field {
+    background-color: transparent;
+    border: 1px solid c.$white;
+    color: c.$white;
+    @include m.size($w: 100%);
+    @include m.indent($pt: 10px, $pr: 10px, $pb: 10px, $pl: 10px);
+
+    &::placeholder {
+      color: c.$white;
+    }
+  }
+
+  &-btn {
+    color: c.$white;
+    background-color: c.$blue;
+    border: none;
+    width: 200px;
+    @include m.indent($pt: 10px, $pr: 10px, $pb: 10px, $pl: 10px);
+  }
+}
