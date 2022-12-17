@@ -24,11 +24,25 @@ body {
 }
 
 .title {
+  text-align: center;
   @include m.textOpt(1.2em, 6em, 700);
+
+  &::before {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include m.textOpt(4em, 1em, 700);
+  }
 }
 
 .subtitle {
   @include m.textOpt(1.1em, 4em, 700);
+}
+
+.section-subtitle {
+  text-align: center;
+  @include m.textOpt(0.8em, 2em, 700);
 }
 
 .text {

@@ -6,16 +6,10 @@
   color: white;
 
   &-title {
-    text-align: center;
     position: relative;
     &::before {
       content: "W";
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
       color: c.$whiteOpacity;
-      @include m.textOpt(4em, 1em, 700);
     }
   }
 
