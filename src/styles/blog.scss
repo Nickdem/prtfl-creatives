@@ -20,6 +20,7 @@
     align-items: center;
     column-gap: 20px;
     row-gap: 20px;
+    @include m.indent($pt: 40px, $pr: 20px, $pb: 40px, $pl: 20px);
   }
 }
 
@@ -27,8 +28,8 @@
   text-align: center;
 
   &-img {
-    width: 100%;
     border-radius: 5px;
+    @include m.size($w: 100%);
   }
 
   &-name {
