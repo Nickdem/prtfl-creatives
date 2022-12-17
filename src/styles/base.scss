@@ -1,6 +1,10 @@
 @use "colors" as c;
 @use "mixins" as m;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: sans-serif;
   color: c.$main-background;
