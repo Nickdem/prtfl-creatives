@@ -3,6 +3,7 @@
 
 body {
   font-family: sans-serif;
+  color: c.$main-background;
   background-color: c.$main-background;
   background-image: url("../img/hero2.jpg");
   background-repeat: no-repeat;
@@ -25,6 +26,7 @@ body {
 
 .title {
   text-align: center;
+  position: relative;
   @include m.textOpt(1.2em, 6em, 700);
 
   &::before {
@@ -42,6 +44,7 @@ body {
 
 .section-subtitle {
   text-align: center;
+  @include m.indent($mb: 20px);
   @include m.textOpt(0.8em, 2em, 700);
 }
 

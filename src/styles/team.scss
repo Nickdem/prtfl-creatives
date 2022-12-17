@@ -1,0 +1,50 @@
+@use "colors" as c;
+@use "mixins" as m;
+
+.team {
+  background-color: c.$white;
+
+  &-title {
+    &::before {
+      content: "T";
+      color: c.$mainOpacity;
+    }
+  }
+
+  &-employees {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    column-gap: 20px;
+    @include m.indent($pt: 20px, $pb: 20px);
+  }
+}
+
+.employee {
+  text-align: center;
+  position: relative;
+
+  &-img {
+    @include m.size(100%, 300px);
+  }
+
+  &-description {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    @include m.size($w: calc(100% - 60px));
+    @include m.indent($pr: 20px, $pl: 20px);
+  }
+
+  &-name {
+    color: c.$blue;
+    @include m.textOpt(1em, 2em, 700);
+  }
+
+  &-title {
+    @include m.textOpt(0.6em, 2em, 700);
+  }
+}
