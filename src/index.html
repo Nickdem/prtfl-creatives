@@ -8,29 +8,39 @@
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
   <body>
-    <header class="header container">
+    <header id="home" class="header container">
       <div class="header-inner">
         <h3 class="header-logo">CR</h3>
         <button class="header-menu">menu</button>
         <nav class="header-navigation">
           <ul class="header-links">
-            <li class="header-link"><a href="#home">HOME</a></li>
-            <li class="header-link"><a href="#about">ABOUT</a></li>
-            <li class="header-link"><a href="#blog">BLOG</a></li>
-            <li class="header-link"><a href="#team">TEAM</a></li>
-            <li class="header-link"><a href="#contacts">CONTACT US</a></li>
+            <li class="header-link header-link--active" id="home-link">
+              <a href="#home">HOME</a>
+            </li>
+            <li class="header-link" id="about-link">
+              <a href="#about">ABOUT</a>
+            </li>
+            <li class="header-link" id="blog-link">
+              <a href="#blog">BLOG</a>
+            </li>
+            <li class="header-link" id="team-link">
+              <a href="#team">TEAM</a>
+            </li>
+            <li class="header-link" id="contacts-link">
+              <a href="#contacts">CONTACT US</a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
     <main>
-      <section id="home" class="hero container">
+      <section class="hero container">
         <h1 class="hero-title">CREATIVES</h1>
         <h2 class="hero-subtitle">POWERED BY SITENAME.COM</h2>
         <div class="hero-scroll">
           <span>scroll down</span>
           <div>
-            <a href="#">&#10141;</a>
+            <a href="#about">&#10141;</a>
           </div>
         </div>
       </section>

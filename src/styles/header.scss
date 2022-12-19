@@ -41,17 +41,18 @@
 
   &-navigation {
     position: fixed;
-    top: -1500px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(234, 228, 245, 0.5);
     opacity: 0;
     transition: all 0.44s linear;
+    z-index: -99;
     @include m.size(100vw, 100vh);
   }
 
   &-navigation--show {
-    top: 0;
     opacity: 1;
     z-index: 99;
   }
@@ -75,5 +76,13 @@
 
   &-link {
     @include m.indent($mt: 5px, $mr: 0, $mb: 5px, $ml: 0);
+
+    &--active {
+      opacity: 0.6;
+    }
+
+    a {
+      color: c.$main-background;
+    }
   }
 }

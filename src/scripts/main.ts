@@ -6,7 +6,7 @@ type IFormElements = Array<HTMLFormElement> | Array<Element>;
 
 type IFormElement = HTMLInputElement | HTMLButtonElement;
 
-window.addEventListener("DOMContentLoaded", () => {
+function initMenu() {
   const menuBtn = document.querySelector(".header-menu");
   const navigation = document.querySelector(".header-navigation");
   const menu = document.querySelector(".header-navigation");
@@ -22,7 +22,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   navigation?.addEventListener("click", hideMenu);
+}
 
+function initForm() {
   const form: HTMLFormElement = document.querySelector(".contacts-form");
 
   function validationFields(values: IValues) {
@@ -43,7 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function resetForm(fields: IFormElements) {
     fields.forEach((element: IFormElement) => {
       if (element.id) {
-        element.value = ''
+        element.value = "";
       }
     });
   }
@@ -70,9 +72,58 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (validationFields(formValues)) {
       console.log(formValues);
-      resetForm(formFields)
+      resetForm(formFields);
     }
   }
 
   form?.addEventListener("submit", submitHadler);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  initMenu();
+  initForm();
+  // initLinks();
 });
+
+// function initLinks() {
+//   const homeYPos = document.getElementById("home").getBoundingClientRect().top;
+//   const aboutYPos = document
+//     .getElementById("about")
+//     .getBoundingClientRect().top;
+//   const blogYPos = document.getElementById("blog").getBoundingClientRect().top;
+//   const teamYPos = document.getElementById("team").getBoundingClientRect().top;
+//   const contactsYPos = document
+//     .getElementById("contacts")
+//     .getBoundingClientRect().top;
+//   const footerYPos = document
+//     .querySelector("footer")
+//     .getBoundingClientRect().top;
+//   const homeLink = document.getElementById("home-link");
+//   const aboutLink = document.getElementById("about-link");
+//   const blogLink = document.getElementById("blog-link");
+//   const teamLink = document.getElementById("team-link");
+//   const contactsLink = document.getElementById("contacts-link");
+
+//   function checkPos(pos1: number, pos2: number, linkEl: Element) {
+//     let windowYPos = window.scrollY;
+//     let activeClassName = "header-link--active";
+
+//     if (windowYPos >= pos1 && windowYPos < pos2) {
+//       if (linkEl.className.includes(activeClassName)) {
+//         return;
+//       }
+//       // location.href = "#home";
+//       linkEl.classList.add(activeClassName);
+//     } else {
+//       linkEl.classList.remove(activeClassName);
+//     }
+//   }
+
+//   window.addEventListener("scroll", () => {
+//     checkPos(homeYPos, aboutYPos, homeLink);
+//     checkPos(aboutYPos, blogYPos, aboutLink);
+//     checkPos(blogYPos, teamYPos, blogLink);
+//     checkPos(teamYPos, contactsYPos, teamLink);
+//     checkPos(contactsYPos, footerYPos, contactsLink);
+//   });
+// }
