@@ -2,6 +2,10 @@ interface IValues {
   [key: string]: string;
 }
 
+type IFormElements = Array<HTMLFormElement> | Array<Element>;
+
+type IFormElement = HTMLInputElement | HTMLButtonElement;
+
 window.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".header-menu");
   const navigation = document.querySelector(".header-navigation");
@@ -19,27 +23,55 @@ window.addEventListener("DOMContentLoaded", () => {
 
   navigation?.addEventListener("click", hideMenu);
 
-  const form = document.querySelector(".contacts-form");
+  const form: HTMLFormElement = document.querySelector(".contacts-form");
 
-  function submitHadler(e: SubmitEvent) {
-    e.preventDefault();
+  function validationFields(values: IValues) {
+    let check = true;
 
-    const values: IValues = {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    };
+    for (let key in values) {
+      if (values[key].trim() === "") {
+        document.getElementById(key).classList.add("contacts-field--error");
+        check = false;
+      } else {
+        document.getElementById(key).classList.remove("contacts-field--error");
+      }
+    }
 
-    Array.from(form.children).forEach((element: HTMLFormElement) => {
-      if (element.id in values) {
+    return check;
+  }
+
+  function resetForm(fields: IFormElements) {
+    fields.forEach((element: IFormElement) => {
+      if (element.id) {
+        element.value = ''
+      }
+    });
+  }
+
+  function makeFormValues(fields: IFormElements) {
+    let formValues: IValues = {};
+
+    fields.forEach((element: IFormElement) => {
+      if (element.id) {
         const key = element.id;
         const value = element.value;
-        values[key] = value;
+        formValues[key] = value;
       }
     });
 
-    console.log(values);
+    return formValues;
+  }
+
+  function submitHadler(e: SubmitEvent) {
+    e.preventDefault();
+    const formFields: IFormElements = Array.from(form.children);
+
+    const formValues = makeFormValues(formFields);
+
+    if (validationFields(formValues)) {
+      console.log(formValues);
+      resetForm(formFields)
+    }
   }
 
   form?.addEventListener("submit", submitHadler);

@@ -41,6 +41,10 @@
     @include m.size($w: 100%);
     @include m.indent($pt: 10px, $pr: 10px, $pb: 10px, $pl: 10px);
 
+    &--error {
+      border: 1px solid c.$red;
+    }
+
     &::placeholder {
       color: c.$white;
     }
