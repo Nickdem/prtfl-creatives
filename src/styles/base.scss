@@ -1,5 +1,6 @@
 @use "colors" as c;
 @use "mixins" as m;
+@use "view" as v;
 
 html {
   scroll-behavior: smooth;
@@ -9,9 +10,14 @@ body {
   font-family: sans-serif;
   color: c.$main-background;
   background-color: c.$main-background;
-  background-image: url("../img/hero2.jpg");
+  background-image: url("../img/hero3.jpg");
   background-repeat: no-repeat;
   background-position: top right;
+  background-size: auto 1080px;
+  
+  @media (min-width: v.$tablet-width) and (min-height: v.$tablet-width) {
+    background-size: auto 1280px;
+  }
 }
 
 .container {

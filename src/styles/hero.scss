@@ -1,5 +1,6 @@
 @use "mixins" as m;
 @use "colors" as c;
+@use "view" as v;
 
 .hero {
   text-align: center;
@@ -8,11 +9,19 @@
   &-title {
     color: white;
     @include m.textOpt(3em, 2.4em, 700);
+
+    @media (min-width: v.$tablet-width) {
+      @include m.textOpt(5em, 4em, 700);
+    }
   }
 
   &-subtitle {
     color: c.$blue;
     @include m.textOpt(1.2em, 1em, 400);
+
+    @media (min-width: v.$tablet-width) {
+      @include m.textOpt(2em, 4em, 400);
+    }
   }
 
   &-scroll {
@@ -31,7 +40,31 @@
       a {
         color: white;
         @include m.textOpt(1em, 4em, 700);
+        @media (min-width: v.$tablet-width) {
+          @include m.textOpt(1em, 3.6em, 700);
+        }
+      }
+
+      @media (min-width: v.$tablet-width) {
+        @include m.size(60px, 60px);
       }
     }
+
+    @media (min-width: v.$tablet-width) {
+      @include m.textOpt(1em, 3em, 700);
+      @include m.indent($mt: 30vh, $mr: auto, $mb: 0, $ml: auto);
+    }
+
+    @media (min-width: v.$sm-desktop-width) and (min-height: v.$tablet-width) {
+      @include m.indent($mt: 10vh, $mr: auto, $mb: 0, $ml: auto);
+    }
+
+    @media (min-width: v.$sm-desktop-width) and (min-height: v.$sm-desktop-width) {
+      @include m.indent($mt: 35vh, $mr: auto, $mb: 0, $ml: auto);
+    }
+  }
+
+  @media (min-width: v.$tablet-width) {
+    @include m.size($h: calc(100vh - 108px));
   }
 }

@@ -1,14 +1,15 @@
 @use "colors" as c;
 @use "mixins" as m;
+@use "view" as v;
 
 .header {
-  @include m.indent($pt: 20px, $pr: 20px, $pb: 20px, $pl: 20px);
   border-bottom: 2px solid c.$white;
 
   &-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include m.indent($pt: 20px, $pr: 20px, $pb: 20px, $pl: 20px);
   }
 
   &-logo {
@@ -37,6 +38,10 @@
       background-color: c.$white;
       @include m.size(26px, 1px);
     }
+
+    @media (min-width: v.$tablet-width) {
+      display: none;
+    }
   }
 
   &-navigation {
@@ -50,6 +55,14 @@
     transition: all 0.44s linear;
     z-index: -99;
     @include m.size(100vw, 100vh);
+
+    @media (min-width: v.$tablet-width) {
+      position: static;
+      background: transparent;
+      z-index: auto;
+      opacity: 1;
+      @include m.size(auto, auto);
+    }
   }
 
   &-navigation--show {
@@ -72,6 +85,13 @@
       $mb: 0,
       $ml: auto
     );
+
+    @media (min-width: v.$tablet-width) {
+      background-color: transparent;
+      display: flex;
+      column-gap: 15px;
+      @include m.size(auto, auto);
+    }
   }
 
   &-link {
@@ -83,6 +103,10 @@
 
     a {
       color: c.$main-background;
+
+      @media (min-width: v.$tablet-width) {
+        color: c.$white;
+      }
     }
   }
 }
