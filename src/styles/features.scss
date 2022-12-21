@@ -1,12 +1,12 @@
 @use "colors" as c;
 @use "mixins" as m;
+@use "view" as v;
 
 .features {
   background-color: c.$blue;
   color: white;
 
   &-title {
-    
     &::before {
       content: "W";
       color: c.$whiteOpacity;
@@ -19,10 +19,22 @@
     align-self: center;
     text-align: center;
     @include m.indent($mr: 20px, $ml: 20px);
+
+    @media (min-width: v.$tablet-width) {
+      @include m.indent($mt: 100px, $mr: 20px, $mb: 100px, $ml: 20px);
+      flex-direction: row;
+      justify-content: center;
+      row-gap: 20px;
+      column-gap: 20px;
+    }
   }
 
   &-item {
     @include m.indent($mt: 20px, $mb: 20px);
+
+    @media (min-width: v.$sm-desktop-width) {
+      @include m.size($w: 400px);
+    }
   }
 
   &-img {
@@ -44,6 +56,10 @@
 
   &-name {
     @include m.textOpt(1.2em, 1.6em, 700);
+
+    @media (min-width: v.$sm-desktop-width) {
+      @include m.textOpt(1.8em, 3em, 700);
+    }
   }
 
   &-posts {
@@ -52,6 +68,12 @@
 }
 
 .post {
+  &-content {
+    @media (min-width: v.$tablet-width) {
+      @include m.size($w: 50vw);
+    }
+  }
+
   &-date {
     @include m.textOpt(0.6em, 1em, 400);
 
@@ -61,6 +83,10 @@
 
     span:last-child {
       @include m.indent($pl: 10px);
+    }
+
+    @media (min-width: v.$sm-desktop-width) {
+      @include m.textOpt(1em, 1em, 400);
     }
   }
 
@@ -77,6 +103,10 @@
     span:first-child {
       border-right: 1px solid c.$white;
     }
+
+    @media (min-width: v.$tablet-width) {
+      text-align: left;
+    }
   }
 
   &:nth-child(2n) > &-content {
@@ -88,13 +118,32 @@
     span:first-child {
       border-right: 1px solid c.$main-background;
     }
+
+    @media (min-width: v.$tablet-width) {
+      text-align: left;
+    }
   }
 
   &-picture {
-    @include m.size(100vw, 200px);
+    @include m.size(100vw, auto);
 
     img {
       @include m.size(100%, 100%);
+    }
+
+    @media (min-width: v.$tablet-width) {
+      @include m.size($w: 50vw);
+    }
+  }
+
+  @media (min-width: v.$tablet-width) {
+    display: flex;
+
+    &:nth-child(2n + 1) {
+      flex-direction: row;
+    }
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
     }
   }
 }
