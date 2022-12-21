@@ -1,5 +1,6 @@
 @use "mixins" as m;
 @use "colors" as c;
+@use "view" as v;
 
 .contacts {
   background-image: url("../img/projects.jpg");
@@ -21,6 +22,10 @@
       left: 50%;
       transform: translateX(-50%);
       @include m.textOpt(4em, 1em, 700);
+
+      @media (min-width: 471px) {
+        top: -30px;
+      }
     }
   }
 
@@ -32,6 +37,12 @@
     row-gap: 20px;
     column-gap: 20px;
     @include m.indent($pt: 40px);
+
+    @media (min-width: 471px) {
+      @include m.indent($pt: 40px, $mr: auto, $ml: auto);
+
+      @include m.size($w: 400px);
+    }
   }
 
   &-field {
@@ -56,5 +67,9 @@
     border: none;
     width: 200px;
     @include m.indent($pt: 10px, $pr: 10px, $pb: 10px, $pl: 10px);
+  }
+
+  @media (min-width: v.$tablet-width) {
+    background-size: cover;
   }
 }

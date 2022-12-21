@@ -1,8 +1,15 @@
 @use "colors" as c;
 @use "mixins" as m;
+@use "view" as v;
 
 .footer {
-    color: c.$white;
-    text-align: center;
-    @include m.indent($pt: 20px, $pb:20px)
+  color: c.$white;
+  text-align: center;
+  @include m.indent($pt: 20px, $pb: 20px);
+
+  @media (min-width: v.$sm-desktop-width) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
