@@ -40,10 +40,7 @@ body {
   @include m.textOpt(1.2em, 6em, 700);
 
   &::before {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    @include m.position($p: absolute, $t: 20px, $l: 50%, $trX: true);
     @include m.textOpt(4em, 1em, 700);
   }
 

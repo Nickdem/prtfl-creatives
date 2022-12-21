@@ -6,9 +6,7 @@
   border-bottom: 2px solid c.$white;
 
   &-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include m.flexContainer(row, space-between, center);
     @include m.indent($pt: 20px, $pr: 20px, $pb: 20px, $pl: 20px);
   }
 
@@ -36,6 +34,7 @@
       left: 2px;
       top: 12px;
       background-color: c.$white;
+      @include m.position($p: absolute, $l: 2px, $t: 12px);
       @include m.size(26px, 1px);
     }
 
@@ -45,16 +44,12 @@
   }
 
   &-navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: rgba(234, 228, 245, 0.5);
     opacity: 0;
     transition: all 0.44s linear;
     z-index: -99;
     @include m.size(100vw, 100vh);
+    @include m.position($p: fixed, $t: 0, $r: 0, $b: 0, $l: 0);
 
     @media (min-width: v.$tablet-width) {
       position: static;
@@ -88,8 +83,7 @@
 
     @media (min-width: v.$tablet-width) {
       background-color: transparent;
-      display: flex;
-      column-gap: 15px;
+      @include m.flexContainer($g: 15px);
       @include m.size(auto, auto);
     }
   }

@@ -40,6 +40,7 @@
       a {
         color: white;
         @include m.textOpt(1em, 4em, 700);
+
         @media (min-width: v.$tablet-width) {
           @include m.textOpt(1em, 3.6em, 700);
         }

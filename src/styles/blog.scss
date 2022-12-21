@@ -15,19 +15,17 @@
   }
 
   &-notes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    column-gap: 20px;
-    row-gap: 20px;
+    @include m.flexContainer($fd: column, $ai: center, $g: 20px);
     @include m.indent($pt: 40px, $pr: 20px, $pb: 40px, $pl: 20px);
 
     @media (min-width: v.$tablet-width) {
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      row-gap: 20px;
-      column-gap: 20px;
+      @include m.flexContainer(
+        $fd: row,
+        $jc: center,
+        $ai: center,
+        $fw: wrap,
+        $g: 20px
+      );
     }
   }
 
@@ -66,9 +64,7 @@
 }
 
 .edition {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include m.flexContainer($fd: column, $ai: center);
 
   &-img {
     @include m.textOpt(2em, 2em, 700);
@@ -80,18 +76,12 @@
     }
 
     @media (min-width: v.$sm-desktop-width) {
-      display: flex;
-      align-items: center;
-      row-gap: 20px;
-      column-gap: 20px;
+      @include m.flexContainer($ai: center, $g: 20px);
       @include m.size($w: 500px);
     }
   }
 
   @media (min-width: v.$sm-desktop-width) {
-    flex-direction: row;
-    justify-content: center;
-    row-gap: 20px;
-    column-gap: 20px;
+    @include m.flexContainer($jc: center, $g: 20px);
   }
 }

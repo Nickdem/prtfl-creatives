@@ -13,17 +13,11 @@
   }
 
   &-employees {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-    column-gap: 20px;
+    @include m.flexContainer($fd: column, $ai: center, $g: 20px);
     @include m.indent($pt: 20px, $pb: 20px);
 
     @media (min-width: v.$tablet-width) {
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
+      @include m.flexContainer($fd: row, $jc: center, $g: 20px, $fw: wrap);
       @include m.indent($pt: 50px, $pb: 50px);
     }
   }
@@ -42,11 +36,8 @@
   }
 
   &-description {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
     background-color: white;
+    @include m.position($p: absolute, $b: -10px, $l: 50%, $trX: true);
     @include m.size($w: calc(100% - 40px));
     @include m.indent($pr: 20px, $pl: 20px);
   }
@@ -62,7 +53,7 @@
 
   &-title {
     @include m.textOpt(0.6em, 2em, 700);
-    
+
     @media (min-width: v.$sm-desktop-width) {
       @include m.textOpt(1em, 2em, 700);
     }

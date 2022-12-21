@@ -14,18 +14,13 @@
   }
 
   &-list {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
     text-align: center;
+    @include m.flexContainer($fd: column, $ai: center);
     @include m.indent($mr: 20px, $ml: 20px);
 
     @media (min-width: v.$tablet-width) {
       @include m.indent($mt: 100px, $mr: 20px, $mb: 100px, $ml: 20px);
-      flex-direction: row;
-      justify-content: center;
-      row-gap: 20px;
-      column-gap: 20px;
+      @include m.flexContainer($fd: row, $jc: center, $g: 20px);
     }
   }
 
@@ -137,13 +132,13 @@
   }
 
   @media (min-width: v.$tablet-width) {
-    display: flex;
+    @include m.flexContainer();
 
     &:nth-child(2n + 1) {
-      flex-direction: row;
+      @include m.flexContainer($fd: row);
     }
     &:nth-child(2n) {
-      flex-direction: row-reverse;
+      @include m.flexContainer($fd: row-reverse);
     }
   }
 }
