@@ -64,6 +64,10 @@ body {
   text-align: center;
   @include m.indent($mb: 20px);
   @include m.textOpt(0.8em, 2em, 700);
+
+  @media (min-width: v.$tablet-width) {
+    @include m.textOpt(1.4em, 4em, 700);
+  }
 }
 
 .text {
