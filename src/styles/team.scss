@@ -1,5 +1,6 @@
 @use "colors" as c;
 @use "mixins" as m;
+@use "view" as v;
 
 .team {
   background-color: c.$white;
@@ -18,6 +19,13 @@
     row-gap: 20px;
     column-gap: 20px;
     @include m.indent($pt: 20px, $pb: 20px);
+
+    @media (min-width: v.$tablet-width) {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      @include m.indent($pt: 50px, $pb: 50px);
+    }
   }
 }
 
@@ -27,6 +35,10 @@
 
   &-img {
     @include m.size(100%, 300px);
+
+    @media (min-width: v.$sm-desktop-width) {
+      @include m.size(100%, 400px);
+    }
   }
 
   &-description {
@@ -42,9 +54,17 @@
   &-name {
     color: c.$blue;
     @include m.textOpt(1em, 2em, 700);
+
+    @media (min-width: v.$sm-desktop-width) {
+      @include m.textOpt(1.4em, 2em, 700);
+    }
   }
 
   &-title {
     @include m.textOpt(0.6em, 2em, 700);
+    
+    @media (min-width: v.$sm-desktop-width) {
+      @include m.textOpt(1em, 2em, 700);
+    }
   }
 }
