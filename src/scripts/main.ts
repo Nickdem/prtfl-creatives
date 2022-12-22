@@ -51,7 +51,7 @@ function initForm() {
   }
 
   function makeFormValues(fields: IFormElements) {
-    const formValues: IValues = {};
+    let formValues: IValues = {};
 
     fields.forEach((element: IFormElement) => {
       if (element.id) {
