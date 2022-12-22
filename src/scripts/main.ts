@@ -30,7 +30,7 @@ function initForm() {
   function validationFields(values: IValues) {
     let check = true;
 
-    for (let key in values) {
+    for (const key in values) {
       if (values[key].trim() === "") {
         document.getElementById(key).classList.add("contacts-field--error");
         check = false;
@@ -51,7 +51,7 @@ function initForm() {
   }
 
   function makeFormValues(fields: IFormElements) {
-    let formValues: IValues = {};
+    const formValues: IValues = {};
 
     fields.forEach((element: IFormElement) => {
       if (element.id) {
