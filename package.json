@@ -7,7 +7,8 @@
     "dev": "gulp dev",
     "build": "gulp build",
     "lint-write": "npx prettier --write .",
-    "lint": "npx prettier --check ."
+    "lint": "npx prettier --check .",
+    "ts": "./node_modules/.bin/tsc"
   },
   "keywords": [],
   "author": "",
