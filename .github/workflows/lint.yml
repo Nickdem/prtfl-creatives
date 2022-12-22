@@ -14,7 +14,7 @@ jobs:
           node-version: "18.12.1"
       - name: install dependencies
         run: npm ci
-      - name: runing ts
-        run: npm run ts
-      - name: runing lint
-        run: npm run lint
+      - name: runing prettier
+        run: npm run prettier-check
+      - name: runing eslint
+        run: npm run eslint
