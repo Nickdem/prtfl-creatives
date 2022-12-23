@@ -61,6 +61,10 @@
     }
   }
 
+  & textarea {
+    resize: none;
+  }
+
   &-btn {
     color: c.$white;
     background-color: c.$blue;

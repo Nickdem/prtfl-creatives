@@ -10,32 +10,46 @@ function initMenu() {
   const menuBtn = document.querySelector(".header-menu");
   const navigation = document.querySelector(".header-navigation");
   const menu = document.querySelector(".header-navigation");
+  const body = document.querySelector("body");
+  const menuActiveClassName = "header-navigation--show";
 
-  const showMenu = () => {
-    menu?.classList.add("header-navigation--show");
-  };
+  function showMenu() {
+    menu?.classList.add(menuActiveClassName);
+    body.style.overflowY = "hidden";
+  }
 
   menuBtn?.addEventListener("click", showMenu);
 
   function hideMenu() {
-    menu?.classList.remove("header-navigation--show");
+    menu?.classList.remove(menuActiveClassName);
+    body.style.overflowY = "scroll";
   }
 
   navigation?.addEventListener("click", hideMenu);
+
+  window.addEventListener("resize", function () {
+    if (getComputedStyle(body).overflowY === "scroll") {
+      return;
+    }
+
+    menu?.classList.remove(menuActiveClassName);
+    body.style.overflowY = "scroll";
+  });
 }
 
 function initForm() {
   const form: HTMLFormElement = document.querySelector(".contacts-form");
+  const errorFieldClassName = "contacts-field--error";
 
   function validationFields(values: IValues) {
     let check = true;
 
     for (const key in values) {
       if (values[key].trim() === "") {
-        document.getElementById(key).classList.add("contacts-field--error");
+        document.getElementById(key).classList.add(errorFieldClassName);
         check = false;
       } else {
-        document.getElementById(key).classList.remove("contacts-field--error");
+        document.getElementById(key).classList.remove(errorFieldClassName);
       }
     }
 
