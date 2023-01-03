@@ -49,6 +49,8 @@
   right: $r;
   left: $l;
   bottom: $b;
+  transform: none;
+
   @if ($trX) {
     transform: translateX(-50%);
   }

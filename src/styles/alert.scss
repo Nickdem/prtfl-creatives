@@ -1,0 +1,44 @@
+@use "colors" as c;
+@use "mixins" as m;
+@use "view" as v;
+
+.alert {
+  text-align: center;
+  transition: all 0.44s linear;
+  @include m.indent($pt: 15px, $pr: 15px, $pb: 15px, $pl: 15px);
+  @include m.size(300px);
+  @include m.position($p: fixed, $t: -3000px, $l: 50%, $trX: true);
+
+  &-text {
+    color: c.$white;
+    @include m.textOpt(1em, 1.6em, 700);
+  }
+
+  &-exit {
+    color: c.$white;
+    border: none;
+    background: none;
+    @include m.textOpt(1em, 1em, 700);
+    @include m.position($p: absolute, $t: 10px, $r: 10px);
+  }
+
+  &-show {
+    @include m.position($p: fixed, $t: 0, $l: 50%, $trX: true);
+  }
+
+  &--success {
+    background-color: green;
+  }
+
+  &--error {
+    background-color: crimson;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    @include m.position($p: fixed, $t: -3000px, $r: 30px);
+
+    &-show {
+      @include m.position($p: fixed, $t: 30px, $r: 30px);
+    }
+  }
+}
