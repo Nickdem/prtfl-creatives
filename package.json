@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "prettier-write": "npx prettier --write .",
-    "prettier-check": "npx prettier --check .",
+    "prettier-write": "npx prettier --write ./src",
+    "prettier-check": "npx prettier --check ./src",
     "eslint": "eslint ./src"
   },
   "keywords": [],
