@@ -2,8 +2,15 @@
 @use "colors" as c;
 @use "view" as v;
 
-.contacts {
+.webp-true .contacts {
+  background-image: url("../img/projects.webp");
+}
+
+.webp-false .contacts {
   background-image: url("../img/projects.jpg");
+}
+
+.contacts {
   background-repeat: no-repeat;
   background-position: center left;
   @include m.indent($pt: 40px, $pr: 20px, $pb: 40px, $pl: 20px);

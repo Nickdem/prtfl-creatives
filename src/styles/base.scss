@@ -10,10 +10,17 @@ body {
   font-family: sans-serif;
   color: c.$main-background;
   background-color: c.$main-background;
-  background-image: url("../img/hero3.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: auto 1080px;
+
+  &.webp-true {
+    background-image: url("../img/hero3.webp");
+  }
+
+  &.webp-false {
+    background-image: url("../img/hero3.jpg");
+  }
 
   @media (min-width: v.$tablet-width) and (min-height: v.$tablet-width) {
     background-size: auto 1280px;
@@ -77,4 +84,29 @@ body {
 
 .date {
   @include m.textOpt(0.8em, 4em, 700);
+}
+
+a:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px c.$blue;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px c.$white;
+}
+
+a,
+button {
+  transition: all 0.44s linear;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button:hover {
+  background-color: c.$main-background;
 }
