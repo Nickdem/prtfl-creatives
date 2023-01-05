@@ -21,6 +21,7 @@ function initForm() {
   const errorAlertText = "Проверьте внимательно поля формы!";
 
   function showHelper(type: string) {
+    hideHelper();
     if (type === "error") {
       alertText.innerText = errorAlertText;
       alert.classList.add(errorAlertClassName);
