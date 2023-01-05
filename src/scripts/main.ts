@@ -4,4 +4,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initMenu(body);
   initForm();
   makeBackgrounds(body);
+  postsInit();
 });

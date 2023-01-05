@@ -110,3 +110,14 @@ a:hover {
 button:hover {
   background-color: c.$main-background;
 }
+
+.button {
+  color: c.$white;
+  background-color: c.$blue;
+  border: none;
+  @include m.size($w: 200px);
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}

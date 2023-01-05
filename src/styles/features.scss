@@ -59,7 +59,22 @@
 
   &-posts {
     @include m.indent($mt: 40px);
+    background-color: c.$main-background;
   }
+}
+
+.posts-button {
+  display: block;
+  @include m.indent(
+    $mt: 20px,
+    $mr: auto,
+    $mb: 20px,
+    $ml: auto,
+    $pt: 10px,
+    $pr: 10px,
+    $pb: 10px,
+    $pl: 10px
+  );
 }
 
 .post {

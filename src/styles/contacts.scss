@@ -73,15 +73,7 @@
   }
 
   &-btn {
-    color: c.$white;
-    background-color: c.$blue;
-    border: none;
-    width: 200px;
     @include m.indent($pt: 10px, $pr: 10px, $pb: 10px, $pl: 10px);
-
-    &:disabled {
-      opacity: 0.5;
-    }
   }
 
   @media (min-width: v.$tablet-width) {
