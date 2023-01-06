@@ -3,6 +3,7 @@
 @use "view" as v;
 
 .alert {
+  z-index: 100;
   text-align: center;
   transition: all 0.44s linear;
   @include m.indent($pt: 15px, $pr: 15px, $pb: 15px, $pl: 15px);

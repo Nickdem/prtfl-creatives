@@ -5,4 +5,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initForm();
   makeBackgrounds(body);
   postsInit();
+  headerInit();
 });
