@@ -103,24 +103,20 @@
     }
   }
 
-  &-link {
+  & .links-item {
     @include m.indent($mt: 5px, $mr: 0, $mb: 5px, $ml: 0);
+  }
 
+  &-link {
+    color: c.$main-background;
+    transition: all 0.44s linear;
     &--active {
       opacity: 0.6;
       pointer-events: none;
-
-      a {
-        pointer-events: none;
-      }
     }
 
-    a {
-      color: c.$main-background;
-
-      @media (min-width: v.$tablet-width) {
-        color: c.$white;
-      }
+    @media (min-width: v.$tablet-width) {
+      color: c.$white;
     }
   }
 }
