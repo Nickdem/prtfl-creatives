@@ -1,8 +1,9 @@
+const tabletWidth = 767;
+
 function headerInit() {
   const header: HTMLBaseElement = document.querySelector(".header");
   const hero: HTMLBaseElement = document.querySelector(".hero");
 
-  const tabletWidth = 767;
   const mobHeaderHeight = 90;
   const headerHeight = 108;
 

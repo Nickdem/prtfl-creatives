@@ -121,6 +121,23 @@
   }
 }
 
+.navigation-close {
+  background: transparent;
+  border: none;
+  color: c.$white;
+  border-radius: 50%;
+  background-color: c.$main-background;
+  @include m.size(58px, 58px);
+
+  @include m.indent($pt: 5px, $pr: 5px, $pb: 5px, $pl: 5px);
+  @include m.position($p: fixed, $b: 20px, $l: 50%, $trX: true);
+  @include m.textOpt(2em, 1em, 700);
+
+  @media (min-width: v.$tablet-width) {
+    display: none;
+  }
+}
+
 @keyframes header-animation {
   0% {
     opacity: 0;
