@@ -5,8 +5,8 @@ on:
     tags:
       - release-0.0.*
 jobs:
-  lint:
-    name: lint project
+  build:
+    name: build project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
