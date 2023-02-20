@@ -26,9 +26,9 @@
 
   &-scroll {
     color: white;
-    @include m.indent($mt: 35vh, $mr: auto, $mb: 0, $ml: auto);
     @include m.size($w: 200px);
     @include m.textOpt(0.8em, 4em, 700);
+    @include m.position($p: absolute, $b: 50px, $l: 50%, $trX: true);
 
     div {
       border: 1px solid white;
@@ -53,15 +53,6 @@
 
     @media (min-width: v.$tablet-width) {
       @include m.textOpt(1em, 3em, 700);
-      @include m.indent($mt: 30vh, $mr: auto, $mb: 0, $ml: auto);
-    }
-
-    @media (min-width: v.$sm-desktop-width) and (min-height: v.$tablet-width) {
-      @include m.indent($mt: 10vh, $mr: auto, $mb: 0, $ml: auto);
-    }
-
-    @media (min-width: v.$sm-desktop-width) and (min-height: v.$sm-desktop-width) {
-      @include m.indent($mt: 35vh, $mr: auto, $mb: 0, $ml: auto);
     }
   }
 
