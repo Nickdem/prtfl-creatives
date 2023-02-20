@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - "main"
+    tags-ignore:
+      - release-0.0.*
 jobs:
   lint:
     name: lint project
@@ -19,10 +21,3 @@ jobs:
         run: npm run prettier-check
       - name: runing eslint
         run: npm run eslint
-      - name: build project
-        run: npm run build
-      - name: upload static site content
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: dist/

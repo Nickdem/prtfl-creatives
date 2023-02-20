@@ -1,0 +1,24 @@
+name: build
+run-name: ${{ github.actor }} create and push tag to the ${{ github.ref_name }}
+on:
+  push:
+    tags:
+      - release-0.0.*
+jobs:
+  lint:
+    name: lint project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.12.1"
+      - name: install dependencies
+        run: npm ci
+      - name: build project
+        run: npm run build
+      - name: upload static site content
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: dist/
