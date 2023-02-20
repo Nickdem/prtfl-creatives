@@ -13,7 +13,7 @@
 .contacts {
   background-repeat: no-repeat;
   background-position: center left;
-  @include m.indent($pt: 40px, $pr: 20px, $pb: 40px, $pl: 20px);
+  @include m.indent($pt: 88px, $pr: 20px, $pb: 40px, $pl: 20px);
 
   &-title {
     color: c.$white;
