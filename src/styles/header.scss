@@ -110,9 +110,11 @@
   &-link {
     color: c.$main-background;
     transition: all 0.44s linear;
+
     &--active {
       opacity: 0.6;
       pointer-events: none;
+      text-decoration: underline;
     }
 
     @media (min-width: v.$tablet-width) {
