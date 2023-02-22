@@ -1,12 +1,19 @@
-name: build
+name: build and deploy
 run-name: ${{ github.actor }} create and push tag to the ${{ github.ref_name }}
 on:
   push:
     tags:
       - release-0.0.*
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
   build:
-    name: build project
+    name: build and deploy project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,8 +24,13 @@ jobs:
         run: npm ci
       - name: build project
         run: npm run build
+      - name: setup Pages
+        uses: actions/configure-pages@v3
       - name: upload static site content
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
+          name: github-pages
           path: dist/
+      - name: deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
