@@ -5,18 +5,10 @@ on:
     tags:
       - release-0.0.*
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 jobs:
   build:
     name: build and deploy project
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,17 +19,12 @@ jobs:
         run: npm ci
       - name: build project
         run: npm run build
-      - run: echo "Status - ${{ steps.deployment.outputs }}."
-      - run: echo "Status - ${{ steps.deployment }}."
-      - run: echo "Status - ${{ steps.deployment.outputs.page_url }}."
-      - name: setup Pages
-        uses: actions/configure-pages@v3
       - name: upload static site content
-        uses: actions/upload-pages-artifact@v1
-        # uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: dist/
       - name: deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
