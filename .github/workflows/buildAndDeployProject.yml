@@ -27,10 +27,14 @@ jobs:
         run: npm ci
       - name: build project
         run: npm run build
+      - run: echo "Status - ${{ steps.deployment.outputs }}."
+      - run: echo "Status - ${{ steps.deployment }}."
+      - run: echo "Status - ${{ steps.deployment.outputs.page_url }}."
       - name: setup Pages
         uses: actions/configure-pages@v3
       - name: upload static site content
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
+        # uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: dist/
