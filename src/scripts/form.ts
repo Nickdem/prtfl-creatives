@@ -86,7 +86,7 @@ function initForm() {
     const formValues = makeFormValues(formFields);
 
     if (validationFields(formValues)) {
-      console.log(formValues);
+      console.log(formValues, '!!!!!!!');
       showHelper("success");
       resetForm(formFields);
       submitBtn.disabled = false;
