@@ -42,9 +42,21 @@ function initForm() {
 
   function validationFields(values: IValues) {
     let check = true;
+    const regExName = /[^a-zA-Zа-яёА-ЯЁ ]/g;
+    const regExEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const regExPhone = /^\+?(\d){6,12}$/g;
 
     for (const key in values) {
-      if (values[key].trim() === "") {
+      if (values[key] === "") {
+        document.getElementById(key).classList.add(errorFieldClassName);
+        check = false;
+      } else if (key === "name" && regExName.test(values[key])) {
+        document.getElementById(key).classList.add(errorFieldClassName);
+        check = false;
+      } else if (key == "email" && !regExEmail.test(values[key])) {
+        document.getElementById(key).classList.add(errorFieldClassName);
+        check = false;
+      } else if (key == "phone" && !regExPhone.test(values[key])) {
         document.getElementById(key).classList.add(errorFieldClassName);
         check = false;
       } else {
@@ -69,7 +81,7 @@ function initForm() {
     fields.forEach((element: IFormElement) => {
       if (element.id) {
         const key = element.id;
-        const value = element.value;
+        const value = element.value.trim();
         formValues[key] = value;
       }
     });
@@ -86,7 +98,7 @@ function initForm() {
     const formValues = makeFormValues(formFields);
 
     if (validationFields(formValues)) {
-      console.log(formValues, "!!!!!!!");
+      console.log(formValues);
       showHelper("success");
       resetForm(formFields);
       submitBtn.disabled = false;
